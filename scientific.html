@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/scientific.css">
+    <meta name="description" content="Advanced scientific calculator with trigonometry, logarithms, powers, roots, factorials, and constants.">
+</head>
+<body>
+    <!-- Ambient Background Lighting -->
+    <div class="bg-ambient">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="nav-brand" title="Back to Home / Selector">
+            <div class="brand-icon">←</div>
+            <span>Home</span>
+        </a>
+        <div class="nav-links">
+            <button id="btn-history-toggle" class="icon-btn" title="Calculation History" aria-label="History">📜</button>
+            <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">🔊</button>
+            <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">☀️</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="sci-page-container">
+        <div class="sci-wrapper">
+            <!-- Header Bar -->
+            <div class="sci-header">
+                <div class="sci-mode-indicators">
+                    <span class="indicator-badge active" id="indicator-degrad" title="Click to toggle Degree / Radian">DEG</span>
+                    <span class="indicator-badge" id="badge-inv" title="Inverse function mode">INV</span>
+                    <span class="indicator-badge" id="badge-memory" title="Memory active">M</span>
+                </div>
+                <div class="sci-header-actions">
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Scientific Mode</span>
+                </div>
+            </div>
+
+            <!-- Display Screen -->
+            <div class="sci-display">
+                <div class="sci-display-top">
+                    <div class="sci-badges-bar">
+                        <span class="mini-badge" id="mini-deg-badge">DEG</span>
+                        <span class="mini-badge" id="mini-rad-badge">RAD</span>
+                    </div>
+                </div>
+
+                <!-- Expression Construction Line -->
+                <div class="sci-expression" id="sci-expression">0</div>
+
+                <!-- Main Evaluated Result -->
+                <div class="sci-main-result" id="sci-main-result">0</div>
+
+                <!-- Bottom Status & Actions -->
+                <div class="sci-display-bottom">
+                    <div class="sci-live-preview" id="sci-live-preview"></div>
+                    <div class="sci-display-tools">
+                        <button class="display-action-btn" id="btn-copy" title="Copy result to clipboard">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Keypad Grid (8 columns on desktop: Left 4 for Scientific, Right 4 for Numbers/Operations) -->
+            <div class="sci-grid">
+                <!-- Row 1 -->
+                <button class="sci-btn btn-func" id="btn-degrad-toggle" data-action="degrad" title="Toggle Degrees or Radians">DEG</button>
+                <button class="sci-btn btn-func" id="btn-inv-toggle" data-action="inv" title="Toggle 2nd / Inverse Functions">2nd</button>
+                <button class="sci-btn btn-memory" data-mem="mc" title="Memory Clear">MC</button>
+                <button class="sci-btn btn-memory" data-mem="mr" title="Memory Recall">MR</button>
+                <button class="sci-btn btn-func" data-insert="(" title="Open Parenthesis">(</button>
+                <button class="sci-btn btn-func" data-insert=")" title="Close Parenthesis">)</button>
+                <button class="sci-btn btn-clear" data-action="backspace" title="Backspace (⌫)">⌫</button>
+                <button class="sci-btn btn-clear" data-action="all-clear" title="All Clear (AC)">AC</button>
+
+                <!-- Row 2 -->
+                <button class="sci-btn btn-memory" data-mem="m+" title="Memory Add">M+</button>
+                <button class="sci-btn btn-memory" data-mem="m-" title="Memory Subtract">M-</button>
+                <button class="sci-btn btn-memory" data-mem="ms" title="Memory Store">MS</button>
+                <button class="sci-btn btn-func" data-insert="π" title="Pi (3.14159...)">π</button>
+                <button class="sci-btn btn-number" data-insert="7">7</button>
+                <button class="sci-btn btn-number" data-insert="8">8</button>
+                <button class="sci-btn btn-number" data-insert="9">9</button>
+                <button class="sci-btn btn-op" data-insert=" ÷ " title="Divide (÷)">÷</button>
+
+                <!-- Row 3 -->
+                <button class="sci-btn btn-func" id="btn-sin" data-insert="sin(" title="Sine">sin</button>
+                <button class="sci-btn btn-func" id="btn-cos" data-insert="cos(" title="Cosine">cos</button>
+                <button class="sci-btn btn-func" id="btn-tan" data-insert="tan(" title="Tangent">tan</button>
+                <button class="sci-btn btn-func" data-insert="e" title="Euler's Constant (2.71828...)">e</button>
+                <button class="sci-btn btn-number" data-insert="4">4</button>
+                <button class="sci-btn btn-number" data-insert="5">5</button>
+                <button class="sci-btn btn-number" data-insert="6">6</button>
+                <button class="sci-btn btn-op" data-insert=" × " title="Multiply (×)">×</button>
+
+                <!-- Row 4 -->
+                <button class="sci-btn btn-func" data-insert="sinh(" title="Hyperbolic Sine">sinh</button>
+                <button class="sci-btn btn-func" data-insert="cosh(" title="Hyperbolic Cosine">cosh</button>
+                <button class="sci-btn btn-func" data-insert="tanh(" title="Hyperbolic Tangent">tanh</button>
+                <button class="sci-btn btn-func" data-insert="1/(" title="Reciprocal (1/x)">1/x</button>
+                <button class="sci-btn btn-number" data-insert="1">1</button>
+                <button class="sci-btn btn-number" data-insert="2">2</button>
+                <button class="sci-btn btn-number" data-insert="3">3</button>
+                <button class="sci-btn btn-op" data-insert=" − " title="Subtract (−)">−</button>
+
+                <!-- Row 5 -->
+                <button class="sci-btn btn-func" id="btn-ln" data-insert="ln(" title="Natural Logarithm">ln</button>
+                <button class="sci-btn btn-func" id="btn-log" data-insert="log(" title="Logarithm base 10">log</button>
+                <button class="sci-btn btn-func" data-insert="abs(" title="Absolute Value (|x|)">|x|</button>
+                <button class="sci-btn btn-func" data-insert=" % " title="Percentage or Modulo (%)">%</button>
+                <button class="sci-btn btn-number" data-insert="." title="Decimal Point (.)">.</button>
+                <button class="sci-btn btn-number" data-insert="0">0</button>
+                <button class="sci-btn btn-func" data-action="toggle-sign" title="Toggle Negative Sign (±)">±</button>
+                <button class="sci-btn btn-op" data-insert=" + " title="Add (+)">+</button>
+
+                <!-- Row 6 -->
+                <button class="sci-btn btn-func" id="btn-sqr" data-insert="^2" title="Square (x²)">x²</button>
+                <button class="sci-btn btn-func" data-insert="^" title="Power (xʸ)">xʸ</button>
+                <button class="sci-btn btn-func" id="btn-sqrt" data-insert="√(" title="Square Root (√)">√x</button>
+                <button class="sci-btn btn-func" data-insert="!" title="Factorial (n!)">n!</button>
+                <button class="sci-btn btn-func" data-insert="Ans" title="Recall Previous Answer">Ans</button>
+                <button class="sci-btn btn-func" data-insert=" EXP " title="Scientific Notation (EXP / ×10ⁿ)">EXP</button>
+                <button class="sci-btn btn-equals" style="grid-column: span 2;" data-action="evaluate" title="Evaluate (=)">=</button>
+            </div>
+
+            <!-- Switch Banner -->
+            <div class="mode-switch-banner">
+                <a href="simple.html" class="mode-switch-link">
+                    <span>Prefer a cleaner, simpler view?</span>
+                    <strong>Switch to Simple Calculator →</strong>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- History Drawer -->
+    <aside class="history-drawer" id="history-drawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <span>📜</span>
+                <span>Scientific History</span>
+            </div>
+            <button class="icon-btn" id="btn-close-history" title="Close History">✕</button>
+        </div>
+        <div class="history-list" id="history-list">
+            <!-- Dynamic history items rendered here -->
+        </div>
+        <div class="drawer-footer">
+            <button class="btn-secondary" id="btn-clear-history">Clear History</button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Coded With Care</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/math-engine.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/scientific.js"></script>
+</body>
+</html>
+

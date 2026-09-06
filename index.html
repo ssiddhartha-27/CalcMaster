@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcMaster</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <meta name="description" content="A modern calculator web app with dedicated interfaces for Simple arithmetic and advanced Scientific computations.">
+</head>
+<body>
+    <!-- Ambient Background Blobs -->
+    <div class="bg-ambient">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="nav-brand">
+            <div class="brand-icon">∑</div>
+            <span>CalcMaster</span>
+        </a>
+        <div class="nav-links">
+            <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">🔊</button>
+            <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">☀️</button>
+        </div>
+    </header>
+
+    <!-- Main Landing Container -->
+    <main class="landing-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">Universal Calculator</div>
+            <h1 class="hero-title">Select Your Calculator</h1>
+            <p class="hero-subtitle">
+                Choose between everyday arithmetic simplicity or advanced scientific computational power. 
+                Click any mode below to begin calculating.
+            </p>
+        </section>
+
+        <!-- Mode Selector Cards -->
+        <section class="selector-grid">
+            <!-- Simple Calculator Card -->
+            <a href="simple.html" class="choice-card card-simple" id="card-simple">
+                <div class="card-mockup">
+                    <div class="mockup-display">
+                        <div class="sub">125 × 4 =</div>
+                        <div class="main">500</div>
+                    </div>
+                    <div class="mockup-keys simple-keys">
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key op"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key op"></div>
+                    </div>
+                </div>
+
+                <span class="card-badge">Daily Arithmetic</span>
+                <h2 class="card-title">
+                    <span class="icon">＋</span>
+                    <span>Simple Calculator</span>
+                </h2>
+                <p class="card-desc">
+                    Fast, clean, and distraction-free arithmetic. Designed for daily budgeting, grocery calculations, percentages, and quick figures with full keyboard support and calculation history.
+                </p>
+
+                <div class="feature-pills">
+                    <span class="pill">+ - × ÷</span>
+                    <span class="pill">Percentages %</span>
+                    <span class="pill">Sign Toggle ±</span>
+                    <span class="pill">Calculation Log</span>
+                    <span class="pill">Keyboard Friendly</span>
+                </div>
+
+                <div class="card-btn">
+                    <span>Open Simple Calculator</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- Scientific Calculator Card -->
+            <a href="scientific.html" class="choice-card card-scientific" id="card-scientific">
+                <div class="card-mockup">
+                    <div class="mockup-display">
+                        <div class="sub">sin(30°) + log(100) =</div>
+                        <div class="main">2.5</div>
+                    </div>
+                    <div class="mockup-keys scientific-keys">
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key op"></div>
+                        <div class="mock-key eq"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key"></div>
+                        <div class="mock-key op"></div>
+                        <div class="mock-key eq"></div>
+                    </div>
+                </div>
+
+                <span class="card-badge">Advanced Computing</span>
+                <h2 class="card-title">
+                    <span class="icon">∫</span>
+                    <span>Scientific Calculator</span>
+                </h2>
+                <p class="card-desc">
+                    High-precision computational power for engineering, physics, and higher mathematics. Includes trigonometry, logarithms, powers, roots, hyperbolic functions, factorials, and memory slots.
+                </p>
+
+                <div class="feature-pills">
+                    <span class="pill">Trigonometry (DEG / RAD)</span>
+                    <span class="pill">ln &amp; log₁₀</span>
+                    <span class="pill">xʸ &amp; √x</span>
+                    <span class="pill">Constants π &amp; e</span>
+                    <span class="pill">Factorial n!</span>
+                    <span class="pill">Memory (M+, MR)</span>
+                </div>
+
+                <div class="card-btn">
+                    <span>Open Scientific Calculator</span>
+                    <span>→</span>
+                </div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Coded With Care</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+</body>
+</html>
+

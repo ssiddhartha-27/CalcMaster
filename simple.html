@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/simple.css">
+    <meta name="description" content="Fast and elegant simple calculator for daily arithmetic, percentages, and calculations.">
+</head>
+<body>
+    <!-- Ambient Background Lighting -->
+    <div class="bg-ambient">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="nav-brand" title="Back to Home / Selector">
+            <div class="brand-icon">←</div>
+            <span>Home</span>
+        </a>
+        <div class="nav-links">
+            <button id="btn-history-toggle" class="icon-btn" title="Calculation History" aria-label="History">📜</button>
+            <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">🔊</button>
+            <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">☀️</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="calc-page-container">
+        <div class="calc-wrapper">
+            <!-- Header Bar -->
+            <div class="calc-header">
+                <span class="calc-title-badge">Simple Calculator</span>
+                <div class="calc-header-actions">
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Standard Mode</span>
+                </div>
+            </div>
+
+            <!-- Display Screen -->
+            <div class="calc-display" id="calc-display">
+                <div class="display-meta">
+                    <div class="display-history" id="display-history"></div>
+                </div>
+                <div class="display-main" id="display-main">0</div>
+                <div class="display-actions">
+                    <button class="display-action-btn" id="btn-copy" title="Copy result to clipboard">
+                        📋 Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Keypad Grid -->
+            <div class="calc-grid">
+                <!-- Row 1 -->
+                <button class="calc-btn btn-clear" id="btn-clear" data-action="clear" title="Clear (Escape or C)">AC</button>
+                <button class="calc-btn btn-func" data-action="toggle-sign" title="Toggle Positive / Negative (±)">±</button>
+                <button class="calc-btn btn-func" data-action="percent" title="Percentage (%)">%</button>
+                <button class="calc-btn btn-op" data-op="÷" title="Divide (/)">÷</button>
+
+                <!-- Row 2 -->
+                <button class="calc-btn btn-number" data-num="7">7</button>
+                <button class="calc-btn btn-number" data-num="8">8</button>
+                <button class="calc-btn btn-number" data-num="9">9</button>
+                <button class="calc-btn btn-op" data-op="×" title="Multiply (*)">×</button>
+
+                <!-- Row 3 -->
+                <button class="calc-btn btn-number" data-num="4">4</button>
+                <button class="calc-btn btn-number" data-num="5">5</button>
+                <button class="calc-btn btn-number" data-num="6">6</button>
+                <button class="calc-btn btn-op" data-op="−" title="Subtract (-)">−</button>
+
+                <!-- Row 4 -->
+                <button class="calc-btn btn-number" data-num="1">1</button>
+                <button class="calc-btn btn-number" data-num="2">2</button>
+                <button class="calc-btn btn-number" data-num="3">3</button>
+                <button class="calc-btn btn-op" data-op="+" title="Add (+)">+</button>
+
+                <!-- Row 5 -->
+                <button class="calc-btn btn-number" data-action="decimal" title="Decimal Point (.)">.</button>
+                <button class="calc-btn btn-number" data-num="0">0</button>
+                <button class="calc-btn btn-func" data-action="backspace" title="Backspace (⌫)">⌫</button>
+                <button class="calc-btn btn-equals" data-action="equals" title="Calculate (Enter or =)">=</button>
+            </div>
+
+            <!-- Switch Banner -->
+            <div class="mode-switch-banner">
+                <a href="scientific.html" class="mode-switch-link">
+                    <span>Need trigonometry, logs, or powers?</span>
+                    <strong>Switch to Scientific →</strong>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- History Drawer -->
+    <aside class="history-drawer" id="history-drawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <span>📜</span>
+                <span>Calculation History</span>
+            </div>
+            <button class="icon-btn" id="btn-close-history" title="Close History">✕</button>
+        </div>
+        <div class="history-list" id="history-list">
+            <!-- Dynamic history items rendered here -->
+        </div>
+        <div class="drawer-footer">
+            <button class="btn-secondary" id="btn-clear-history">Clear History</button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Coded With Care</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/math-engine.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/simple.js"></script>
+</body>
+</html>
+

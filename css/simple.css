@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Simple Calculator Styles
+   ========================================================================== */
+
+.calc-page-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.calc-wrapper {
+    width: 100%;
+    max-width: 380px;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all var(--transition-normal);
+}
+
+.calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc-title-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-accent);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.calc-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Display Screen */
+.calc-display {
+    background: var(--bg-display);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.25rem 0.85rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 120px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.display-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    min-height: 1.2rem;
+}
+
+.display-history {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.display-main {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: right;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.display-main::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.display-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.5rem;
+}
+
+.display-action-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.display-action-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    border-color: var(--text-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.display-action-btn:active {
+    transform: translateY(0);
+}
+
+/* Keypad Grid */
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.calc-btn {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 600;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    outline: none;
+}
+
+.calc-btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--text-accent);
+}
+
+/* Button Variants */
+.calc-btn.btn-number {
+    background: var(--btn-num-bg);
+    color: var(--btn-num-text);
+}
+
+.calc-btn.btn-number:hover {
+    background: var(--btn-num-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.calc-btn.btn-op {
+    background: var(--btn-op-bg);
+    color: var(--btn-op-text);
+    font-size: 1.5rem;
+}
+
+.calc-btn.btn-op:hover {
+    background: var(--btn-op-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.calc-btn.btn-op.active-op {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+    background: var(--accent-primary);
+    color: #ffffff;
+}
+
+.calc-btn.btn-func {
+    background: var(--btn-func-bg);
+    color: var(--btn-func-text);
+    font-size: 1.15rem;
+}
+
+.calc-btn.btn-func:hover {
+    background: var(--btn-func-hover);
+    transform: translateY(-2px);
+}
+
+.calc-btn.btn-clear {
+    background: var(--btn-action-bg);
+    color: var(--btn-action-text);
+    font-weight: 700;
+}
+
+.calc-btn.btn-clear:hover {
+    background: var(--btn-action-hover);
+    transform: translateY(-2px);
+}
+
+.calc-btn.btn-equals {
+    background: var(--btn-equals-bg);
+    color: var(--btn-equals-text);
+    font-size: 1.6rem;
+    box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.calc-btn.btn-equals:hover {
+    background: var(--btn-equals-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--accent-glow);
+}
+
+/* Span utilities */
+.calc-btn.btn-span-2 {
+    grid-column: span 2;
+}
+
+/* Mode Switch Banner */
+.mode-switch-banner {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.mode-switch-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.mode-switch-link:hover {
+    color: var(--text-accent);
+    border-color: var(--text-accent);
+    background: var(--bg-tertiary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 420px) {
+    .calc-wrapper {
+        padding: 1rem;
+        border-radius: var(--radius-lg);
+    }
+    
+    .calc-btn {
+        min-height: 52px;
+        font-size: 1.2rem;
+    }
+    
+    .display-main {
+        font-size: 2rem;
+    }
+}
+
